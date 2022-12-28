@@ -1,0 +1,13 @@
+.doRoutineBtn{
+    background-color: #373e98;
+    color:#fff;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Poppins', 'sans-serif';
+}
+.doRoutineBtn:hover{
+    background-color: #22489D;
+    margin-left: 5px;
+}
