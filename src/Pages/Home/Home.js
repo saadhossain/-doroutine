@@ -13,7 +13,7 @@ const Home = () => {
                     Task Management App That Gives you control<br /> Over all of your Tasks.
                 </p>
                 <Link>
-                    <button className='doRoutineBtn'>Add Task</button>
+                    <button className='doRoutineBtn hover:ml-1'>Add Task</button>
                 </Link>
             </div>
             <img src={heroBanner} alt='Hero Banner' className='rounded-xl'/>

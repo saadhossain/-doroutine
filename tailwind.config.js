@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "primary": "#373e98",
         "secondary": "#22489D",
+        "actionbtn" : "#ff7666",
         "accent": "#434343"
       },
       fontFamily: {
