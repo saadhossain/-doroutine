@@ -6,6 +6,7 @@ export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
     const auth = getAuth(app)
     const [loading, setLoading] = useState(true)
+    const [darkMode, setDarkMode] = useState(false)
     const googleProvider = new GoogleAuthProvider()
     //Set Logged in user to a state
     const [user, setUser] = useState()
@@ -45,7 +46,7 @@ const AuthProvider = ({children}) => {
         })
         return () => unSubscribe()
     }, [auth])
-    const userInfo = {userRegister, updateUser, userLogin, user, logOut, loading, setLoading, googleLogin}
+    const userInfo = {userRegister, updateUser, userLogin, user, logOut, loading, setLoading, googleLogin, darkMode, setDarkMode}
     return (
         <div>
             <AuthContext.Provider value={userInfo}>

@@ -12,7 +12,7 @@ const Home = () => {
                 <p className='text-lg lg:my-5 font-poppins'>
                     Task Management App That Gives you control<br /> Over all of your Tasks.
                 </p>
-                <Link>
+                <Link to='/addtask'>
                     <button className='doRoutineBtn hover:ml-1'>Add Task</button>
                 </Link>
             </div>
