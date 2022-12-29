@@ -23,7 +23,7 @@ const Login = () => {
         .catch(err => console.error(err))
     }
     return (
-        <div className='flex justify-center my-8'>
+        <div className='flex justify-center my-8 h-[70vh]'>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-primary text-white font-poppins">
                 <h1 className="my-3 text-4xl font-bold">Login Your Account</h1>
                 <form onSubmit={handleUserLogin} className="space-y-12 ng-untouched ng-pristine ng-valid">
