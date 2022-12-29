@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../Components/Loader';
 import { AuthContext } from '../../Context/AuthProvider';
-import TaskShowcase from './TaskShowcase';
-import Loader from '../../Components/Loader'
+import TaskShowcase from '../MyTasks/TaskShowcase';
 
-const MyTasks = () => {
+const AllTasks = () => {
     const { user } = useContext(AuthContext)
     //Get all of my added task
     const { data: myTasks = [], refetch, isLoading } = useQuery({
@@ -16,7 +16,7 @@ const MyTasks = () => {
             return data
         }
     })
-    if(isLoading){
+    if (isLoading) {
         return <Loader></Loader>
     }
     return (
@@ -26,17 +26,14 @@ const MyTasks = () => {
                     <>
                         <div className='lg:flex justify-between'>
                             <div>
-                                <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>All Added <span className='text-secondary'>Tasks</span></h1>
-                                <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary lg:mt-5'>
-                                    Track your tasks and take action...
-                                </p>
+                                <h1 className='text-3xl lg:text-4xl text-primary font-bigshoulder font-semibold'>All Added <span className='text-secondary'>Tasks</span></h1>
                             </div>
-                            <Link to='/completedtasks'>
+                            <Link to='/dashboard/taskscompleted'>
                                 <button className='doRoutineBtn'>Completed Tasks</button>
                             </Link>
                         </div>
                         {/* All My Tasks */}
-                        <div className='grid lg:grid-cols-3 gap-5 mt-3 lg:mt-8'>
+                        <div className='grid lg:grid-cols-2 gap-5 mt-2 lg:mt-5'>
                             {
                                 myTasks.map(task => <TaskShowcase
                                     key={task._id}
@@ -48,7 +45,7 @@ const MyTasks = () => {
                     </>
                     :
                     <div>
-                        <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>You don't have <span className='text-secondary'>Any Tasks</span></h1>
+                        <h1 className='text-3xl lg:text-4xl text-primary font-bigshoulder font-semibold'>You don't have <span className='text-secondary'>Any Tasks</span></h1>
                         <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary mt-5'>
                             Once you add task, will appear here...
                         </p>
@@ -58,4 +55,4 @@ const MyTasks = () => {
     );
 };
 
-export default MyTasks;
+export default AllTasks;

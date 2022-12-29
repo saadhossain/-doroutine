@@ -2,13 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AddTask from "../Pages/AddTask/AddTask";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRouter from "./PrivateRouter";
 import MyTasks from "../Pages/MyTasks/MyTasks";
 import CompletedTasks from "../Pages/CompletedTasks/CompletedTasks";
+import AllTasks from "../Pages/Dashboard/AllTasks";
+import TaskCompleted from "../Pages/Dashboard/TaskCompleted";
 
 export const routers = createBrowserRouter([
     {
@@ -47,7 +48,11 @@ export const routers = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <AllTasks></AllTasks>
+            },
+            {
+                path: '/dashboard/taskscompleted',
+                element: <TaskCompleted></TaskCompleted>
             }
         ]
     }

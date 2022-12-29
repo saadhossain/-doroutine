@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import { AuthContext } from '../Context/AuthProvider';
@@ -28,8 +28,16 @@ const DashboardLayout = () => {
                                 <h4>{user?.email}</h4>
                             </div>
                         </div>
+                        <div className='mt-5'>
+                            <Link to='/dashboard'>
+                                <button className='bg-secondary mb-5 p-2 rounded text-white font-poppins w-full text-left duration-500 ease-in-out hover:bg-primary'>All Tasks</button>
+                            </Link>
+                            <Link to='/dashboard/taskscompleted'>
+                                <button className='bg-secondary mb-5 p-2 rounded text-white font-poppins w-full text-left duration-500 ease-in-out hover:bg-primary'>Completed Tasks</button>
+                            </Link>
+                        </div>
                     </div>
-                    <button onClick={handleLogOut} className='doRoutineBtn'>Signout</button>
+                    <button onClick={handleLogOut} className='bg-secondary py-2 text-white rounded duration-500 ease-in-out hover:bg-actionbtn'>Signout</button>
                 </div>
                 <Outlet></Outlet>
             </div>

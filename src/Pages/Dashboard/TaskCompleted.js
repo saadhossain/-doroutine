@@ -3,9 +3,9 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../../Components/Loader';
 import { AuthContext } from '../../Context/AuthProvider';
-import CompletedShowcase from './CompletedShowcase';
+import CompletedShowcase from '../CompletedTasks/CompletedShowcase';
 
-const CompletedTasks = () => {
+const TaskCompleted = () => {
     //Get loggedIn user from the state
     const { user } = useContext(AuthContext)
     //Get All Completed Task from Database
@@ -28,17 +28,14 @@ const CompletedTasks = () => {
                     <>
                         <div className='lg:flex justify-between'>
                             <div>
-                                <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>My Completed <span className='text-secondary'>Tasks</span></h1>
-                                <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary lg:mt-5'>
-                                    Track which tasks you have already completede...
-                                </p>
+                                <h1 className='text-3xl lg:text-4xl text-primary font-bigshoulder font-semibold'>My Completed <span className='text-secondary'>Tasks</span></h1>
                             </div>
-                            <Link to='/mytask'>
+                            <Link to='/dashboard'>
                                 <button className='doRoutineBtn'>Incomplete Tasks</button>
                             </Link>
                         </div>
                         {/* All Completed Tasks */}
-                        <div className='grid lg:grid-cols-3 gap-5 mt-3 lg:mt-8'>
+                        <div className='grid lg:grid-cols-2 gap-5 mt-2 lg:mt-5'>
                             {
                                 completedTasks.map(task => <CompletedShowcase
                                     key={task._id}
@@ -51,12 +48,12 @@ const CompletedTasks = () => {
                     :
                     <div className='flex justify-between'>
                         <div>
-                            <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>You Don't Have <span className='text-secondary'>Completed Tasks</span></h1>
+                            <h1 className='text-3xl lg:text-4xl text-primary font-bigshoulder font-semibold'>You Don't Have <span className='text-secondary'>Completed Tasks</span></h1>
                             <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary mt-5'>
                                 Once you completed any task, will appear here...
                             </p>
                         </div>
-                        <Link to='/mytask'>
+                        <Link to='/dashboard'>
                             <button className='doRoutineBtn'>Incomplete Tasks</button>
                         </Link>
                     </div>
@@ -65,4 +62,4 @@ const CompletedTasks = () => {
     );
 };
 
-export default CompletedTasks;
+export default TaskCompleted;
