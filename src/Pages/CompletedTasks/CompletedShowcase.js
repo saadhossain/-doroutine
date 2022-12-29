@@ -20,11 +20,9 @@ const CompletedShowcase = ({ task, refetch }) => {
     return (
         <div className='bg-gray-100 rounded-md shadow-lg p-5 font-poppins'>
             <div className='flex justify-between border-b border-accent pb-3'>
-                <div>
-                    <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
-                    <p>{taskDetails}</p>
-                </div>
-                <img src={taskImg} alt={taskTitle} className='w-32 h-16 rounded' />
+                <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
+                <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5'/>
+                <p>{taskDetails}</p>
             </div>
             {/* Showing Task date and time */}
             <div className='flex justify-between mt-2'>
