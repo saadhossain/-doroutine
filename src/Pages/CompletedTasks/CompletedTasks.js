@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../Components/Loader';
 import { AuthContext } from '../../Context/AuthProvider';
 import CompletedShowcase from './CompletedShowcase';
 
@@ -8,7 +9,7 @@ const CompletedTasks = () => {
     //Get loggedIn user from the state
     const { user } = useContext(AuthContext)
     //Get All Completed Task from Database
-    const { data: completedTasks = [], refetch } = useQuery({
+    const { data: completedTasks = [], refetch, isLoading } = useQuery({
         queryKey: ['completedTasks', user?.email],
         queryFn: async () => {
             const completed = await fetch(`https://doroutine.vercel.app/completedtasks?email=${user?.email}
@@ -17,6 +18,9 @@ const CompletedTasks = () => {
             return completedTasks
         }
     })
+    if(isLoading){
+        return <Loader></Loader>
+    }
     return (
         <div className='w-11/12 lg:w-10/12 mx-auto my-5'>
             {

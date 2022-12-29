@@ -3,11 +3,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import TaskShowcase from './TaskShowcase';
+import Loader from '../../Components/Loader'
 
 const MyTasks = () => {
     const { user } = useContext(AuthContext)
     //Get all of my added task
-    const { data: myTasks = [], refetch } = useQuery({
+    const { data: myTasks = [], refetch, isLoading } = useQuery({
         queryKey: ['myTasks', user?.email],
         queryFn: async () => {
             const tasks = await fetch(`https://doroutine.vercel.app/mytasks?email=${user?.email}`)
@@ -15,6 +16,9 @@ const MyTasks = () => {
             return data
         }
     })
+    if(isLoading){
+        return <Loader></Loader>
+    }
     return (
         <div className='w-11/12 lg:w-10/12 mx-auto my-5'>
             {
