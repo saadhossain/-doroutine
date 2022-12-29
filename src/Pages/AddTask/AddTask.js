@@ -57,22 +57,22 @@ const AddTask = () => {
     }
     return (
         <div className='w-11/12 lg:w-10/12 mx-auto my-5'>
-            <h1 className='text-6xl text-primary font-bigshoulder font-semibold'>Add a <span className='text-secondary'>Task</span></h1>
-            <p className='text-2xl font-semibold font-poppins text-primary'>
+            <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>Add a <span className='text-secondary'>Task</span></h1>
+            <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary'>
                 Keep your Tasks Organized...
             </p>
-            <div className='flex gap-10'>
-                <div className='w-2/4'>
+            <div className='lg:flex gap-10'>
+                <div className='w-full lg:w-2/4'>
                     <form onSubmit={handleAddTask} className="space-y-12 mt-10 font-poppins ng-untouched ng-pristine ng-valid">
                         <div className="space-y-2">
                             <input type="text" name="taskTitle" placeholder="Task Title" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent" />
                             <textarea name="taskDetails" rows="3" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent" placeholder='Task Description'></textarea>
-                            <div className='flex items-center gap-3'>
-                                <div className='w-2/4'>
+                            <div className='lg:flex items-center gap-3'>
+                                <div className='w-full lg:w-2/4'>
                                     <label htmlFor="taskFile" className="block mb-2 text-lg">Task Image</label>
                                     <input type="file" name="taskFile" id="taskFile" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent" />
                                 </div>
-                                <div className='w-2/4'>
+                                <div className='w-full lg:w-2/4'>
                                     <label htmlFor="taskDate" className="block mb-2 text-lg">Select Date</label>
                                     <input type="datetime-local" name="taskDate" id="taskDate" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent"/>
                                 </div>
@@ -83,7 +83,7 @@ const AddTask = () => {
                         </div>
                     </form>
                 </div>
-                <img src={addTaskBanner} alt='add task banner' className='w-2/4 rounded-lg' />
+                <img src={addTaskBanner} alt='add task banner' className='w-full lg:w-2/4 rounded-lg mt-5 lg:mt-0' />
             </div>
         </div>
     );

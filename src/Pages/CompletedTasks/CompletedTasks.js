@@ -22,10 +22,10 @@ const CompletedTasks = () => {
             {
                 completedTasks.length ?
                     <>
-                        <div className='flex justify-between'>
+                        <div className='lg:flex justify-between'>
                             <div>
-                                <h1 className='text-6xl text-primary font-bigshoulder font-semibold'>My Completed <span className='text-secondary'>Tasks</span></h1>
-                                <p className='text-2xl font-semibold font-poppins text-primary mt-5'>
+                                <h1 className='text-4xl lg:text-6xl text-primary font-bigshoulder font-semibold'>My Completed <span className='text-secondary'>Tasks</span></h1>
+                                <p className='text-xl lg:text-2xl font-semibold font-poppins text-primary lg:mt-5'>
                                     Track which tasks you have already completede...
                                 </p>
                             </div>
@@ -34,7 +34,7 @@ const CompletedTasks = () => {
                             </Link>
                         </div>
                         {/* All Completed Tasks */}
-                        <div className='grid lg:grid-cols-3 gap-5 mt-8'>
+                        <div className='grid lg:grid-cols-3 gap-5 mt-3 lg:mt-8'>
                             {
                                 completedTasks.map(task => <CompletedShowcase
                                     key={task._id}
