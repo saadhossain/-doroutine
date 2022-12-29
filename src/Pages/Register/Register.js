@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
+import { BsGoogle } from 'react-icons/bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
-    const { userRegister, updateUser } = useContext(AuthContext)
+    const { userRegister, updateUser, googleLogin } = useContext(AuthContext)
     //Redirect User to dashboard after registration
     const location = useLocation()
     const navigate = useNavigate()
-    const from = location.state?.from?.pathname || '/dashboard'
+    const from = location.state?.from?.pathname || '/addtask'
     const handleUserRegistration = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -31,14 +32,23 @@ const Register = () => {
                         const user = result.user;
                         console.log(user);
                         updateUser(fullName, profileImage)
-                            .then(() =>{})
+                            .then(() => { })
                             .catch(err => console.error(err))
                         toast.success('Your Account Registration Successful...')
                         form.reset()
-                        navigate(from, {replace: true})
+                        navigate(from, { replace: true })
                     })
                     .catch(err => console.error(err))
             })
+    }
+    //User Signup using google account
+    const handleGoogleSignUp = () => {
+        googleLogin()
+            .then((result) => {
+                toast.success('Google Signup successfull...')
+                navigate(from, { replace: true })
+            })
+            .catch(err => console.error(err))
     }
     return (
         <div className='flex justify-center my-8'>
@@ -70,6 +80,11 @@ const Register = () => {
                         </p>
                     </div>
                 </form>
+                <div className='flex justify-center bg-gray-800 my-5 py-2 rounded duration-300 ease-in-out hover:bg-actionbtn'>
+                    <button
+                        onClick={handleGoogleSignUp}
+                        className='flex items-center gap-1'><BsGoogle></BsGoogle> Google SignUp</button>
+                </div>
             </div>
         </div>
     );
