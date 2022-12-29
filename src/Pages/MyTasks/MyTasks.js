@@ -15,7 +15,6 @@ const MyTasks = () => {
             return data
         }
     })
-    console.log(myTasks);
     return (
         <div className='w-11/12 lg:w-10/12 mx-auto my-5'>
             <h1 className='text-6xl text-primary font-bigshoulder font-semibold'>All Added <span className='text-secondary'>Tasks</span></h1>
