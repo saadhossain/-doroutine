@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRouter from "./PrivateRouter";
 import MyTasks from "../Pages/MyTasks/MyTasks";
+import CompletedTasks from "../Pages/CompletedTasks/CompletedTasks";
 
 export const routers = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ export const routers = createBrowserRouter([
             {
                 path: '/mytask',
                 element: <PrivateRouter><MyTasks></MyTasks></PrivateRouter>
+            },
+            {
+                path: '/completedtasks',
+                element: <PrivateRouter><CompletedTasks></CompletedTasks></PrivateRouter>
             }
         ]
     },

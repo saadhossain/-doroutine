@@ -8,7 +8,6 @@ const TaskShowcase = ({ task, refetch }) => {
 
     //Mark any Task as complete
     const handleCompleteTask = (id) => {
-        console.log(id);
         fetch(`http://localhost:5000/updatetask/${id}`, {
             method: 'PUT',
             headers:{
@@ -20,6 +19,19 @@ const TaskShowcase = ({ task, refetch }) => {
         .then(data => {
             if(data.modifiedCount > 0){
                 toast.success('Task Marked as Complete...')
+                refetch()
+            }
+        })
+    }
+    //Delete any Task
+    const handleDeleteTask = (id) => {
+        fetch(`http://localhost:5000/deletetask/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                toast.error('Uffs!! Task Deleted...')
                 refetch()
             }
         })
@@ -50,7 +62,8 @@ const TaskShowcase = ({ task, refetch }) => {
                         }
                 </button>
                 <button
-                    className='flex items-center gap-1 bg-actionbtn text-white py-2 px-3 rounded'>
+                onClick={()=> handleDeleteTask(_id)}
+                    className='flex items-center gap-1 bg-actionbtn text-white py-2 px-3 rounded duration-300 ease-in-out hover:bg-[#ed5745]'>
                     <MdDeleteForever></MdDeleteForever>
                     Delete
                 </button>

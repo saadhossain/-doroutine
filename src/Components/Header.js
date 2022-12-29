@@ -22,7 +22,7 @@ const Header = () => {
                             <Link to='/mytask'>My Task</Link>
                         </li>
                         <li>
-                            <Link>Completed Task</Link>
+                            <Link to='/completedtasks'>Completed Task</Link>
                         </li>
                     </ul>
                     <div onClick={() => setExpand(!expand)} className='text-primary text-2xl lg:hidden'>
