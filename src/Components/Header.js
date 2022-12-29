@@ -35,7 +35,7 @@ const Header = () => {
                         {
                             user
                                 ? <Link to='/dashboard'>
-                                    <img src={user?.photoURL} alt={user?.displayName} className='w-16 h-10 rounded-full' />
+                                    <img src={user?.photoURL} alt={user?.displayName} className='w-10 lg:w-16 h-10 rounded-full' />
                                 </Link>
                                 : <Link to='/login'>
                                     <button className='doRoutineBtn'>Login</button>
@@ -44,7 +44,7 @@ const Header = () => {
                     </div>
                     <div onClick={() => setDarkMode(!darkMode)} className='font-semibold'>
                         {
-                            darkMode ? <button className='bg-gray-900 py-1 px-3 rounded text-white flex items-center gap-1'><MdDarkMode></MdDarkMode> Dark</button> : <button className='bg-white py-1 px-3 rounded text-gray-900 flex items-center gap-1'><MdLightMode></MdLightMode> Light</button>
+                            darkMode ? <button className='bg-gray-900 p-2 lg:py-1 lg:px-3 rounded text-white flex items-center gap-1'><MdDarkMode></MdDarkMode> <span className='hidden lg:block'>Dark</span></button> : <button className='bg-white p-2 lg:py-1 lg:px-3 rounded text-gray-900 flex items-center gap-1'><MdLightMode></MdLightMode> <span className='hidden lg:block'>Light</span></button>
                         }
                     </div>
                 </div>
