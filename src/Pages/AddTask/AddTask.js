@@ -19,6 +19,7 @@ const AddTask = () => {
         const formData = new FormData()
         formData.append('image', taskFile);
         const imgbbURL = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBBAPI}`
+        //Add Task Image to the IMGBB Server
         fetch(imgbbURL, {
             method: 'POST',
             body: formData
@@ -36,6 +37,7 @@ const AddTask = () => {
                 authorEmail: user?.email,
                 addedOn: new Date()
             }
+            //Post Task Data to the MongoDB
             fetch('http://localhost:5000/tasks', {
                 method: 'POST',
                 headers: {
@@ -72,7 +74,7 @@ const AddTask = () => {
                                 </div>
                                 <div className='w-2/4'>
                                     <label htmlFor="taskDate" className="block mb-2 text-lg">Select Date</label>
-                                    <input type="date" name="taskDate" id="taskDate" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent"/>
+                                    <input type="datetime-local" name="taskDate" id="taskDate" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent"/>
                                 </div>
                             </div>
                         </div>

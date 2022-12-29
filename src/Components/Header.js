@@ -17,7 +17,7 @@ const Header = () => {
                             <Link to='/addtask'>Add Task</Link>
                         </li>
                         <li>
-                            <Link>My Task</Link>
+                            <Link to='/mytask'>My Task</Link>
                         </li>
                         <li>
                             <Link>Completed Task</Link>
