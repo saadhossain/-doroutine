@@ -14,7 +14,7 @@ const Header = () => {
                     <img src={logo} alt='DoRoutine Logo' className='h-10' />
                 </Link>
                 <div className='flex gap-2 items-center'>
-                    <ul className={`lg:flex gap-2 font-semibold font-bigshoulder absolute lg:static text-primary ${expand ? 'top-14 right-0': 'top-[-200px] right-0'} bg-gray-50 w-full py-2 px-5 shadow-lg lg:shadow-none duration-500 ease-in-out` }>
+                    <ul className={`lg:flex gap-5 font-semibold font-bigshoulder absolute lg:static text-primary ${expand ? 'top-14 right-0': 'top-[-200px] right-0'} bg-gray-50 w-full py-2 px-5 shadow-lg lg:shadow-none duration-500 ease-in-out` }>
                         <li>
                             <Link to='/addtask'>Add Task</Link>
                         </li>
