@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const AddTask = () => {
     //Get LoggedIn user from the state
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     //Functionality to Add a New Task
     const handleAddTask = (e) => {
         e.preventDefault()
@@ -24,36 +24,36 @@ const AddTask = () => {
             method: 'POST',
             body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            const taskImg = data.data.url;
-            //Task Data
-            const taskData = {
-                taskTitle,
-                taskDetails,
-                taskImg,
-                taskDate,
-                addedBy: user?.displayName,
-                authorEmail: user?.email,
-                addedOn: new Date()
-            }
-            //Post Task Data to the MongoDB
-            fetch('http://localhost:5000/tasks', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(taskData)
-            })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
-                    toast.success('New Task Added Successfully...')
-                    form.reset()
+                const taskImg = data.data.url;
+                //Task Data
+                const taskData = {
+                    taskTitle,
+                    taskDetails,
+                    taskImg,
+                    taskDate,
+                    addedBy: user?.displayName,
+                    authorEmail: user?.email,
+                    addedOn: new Date()
                 }
+                //Post Task Data to the MongoDB
+                fetch('https://doroutine.vercel.app/tasks', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(taskData)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            toast.success('New Task Added Successfully...')
+                            form.reset()
+                        }
+                    })
+                    .catch(err => console.error(err))
             })
-            .catch(err => console.error(err))
-        })
     }
     return (
         <div className='w-11/12 lg:w-10/12 mx-auto my-5'>
@@ -74,7 +74,7 @@ const AddTask = () => {
                                 </div>
                                 <div className='w-full lg:w-2/4'>
                                     <label htmlFor="taskDate" className="block mb-2 text-lg">Select Date</label>
-                                    <input type="datetime-local" name="taskDate" id="taskDate" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent"/>
+                                    <input type="datetime-local" name="taskDate" id="taskDate" className="w-full px-3 py-2 border rounded-md border-gray-700 text-accent" />
                                 </div>
                             </div>
                         </div>

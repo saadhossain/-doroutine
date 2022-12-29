@@ -6,7 +6,7 @@ const CompletedShowcase = ({ task, refetch }) => {
     const { _id, taskTitle, taskDetails, taskImg, taskDate } = task;
     //Delete any Task
     const handleDeleteTask = (id) => {
-        fetch(`http://localhost:5000/deletetask/${id}`, {
+        fetch(`https://doroutine.vercel.app/deletetask/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -21,7 +21,7 @@ const CompletedShowcase = ({ task, refetch }) => {
         <div className='bg-gray-100 rounded-md shadow-lg p-5 font-poppins'>
             <div className='border-b border-accent pb-3'>
                 <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
-                <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5'/>
+                <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5' />
                 <p>{taskDetails}</p>
             </div>
             {/* Showing Task date and time */}

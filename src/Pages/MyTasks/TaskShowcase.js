@@ -8,7 +8,7 @@ const TaskShowcase = ({ task, refetch }) => {
 
     //Mark any Task as complete
     const handleCompleteTask = (id) => {
-        fetch(`http://localhost:5000/updatetask/${id}`, {
+        fetch(`https://doroutine.vercel.app/updatetask/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +25,7 @@ const TaskShowcase = ({ task, refetch }) => {
     }
     //Delete any Task
     const handleDeleteTask = (id) => {
-        fetch(`http://localhost:5000/deletetask/${id}`, {
+        fetch(`https://doroutine.vercel.app/deletetask/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -40,7 +40,7 @@ const TaskShowcase = ({ task, refetch }) => {
         <div className='bg-gray-100 rounded-md shadow-lg p-5 font-poppins'>
             <div className='border-b border-accent pb-3'>
                 <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
-                <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5'/>
+                <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5' />
                 <p>{taskDetails}</p>
             </div>
             {/* Showing Task date and time */}

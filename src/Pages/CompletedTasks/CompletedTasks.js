@@ -11,7 +11,7 @@ const CompletedTasks = () => {
     const { data: completedTasks = [], refetch } = useQuery({
         queryKey: ['completedTasks', user?.email],
         queryFn: async () => {
-            const completed = await fetch(`http://localhost:5000/completedtasks?email=${user?.email}
+            const completed = await fetch(`https://doroutine.vercel.app/completedtasks?email=${user?.email}
             `)
             const completedTasks = await completed.json()
             return completedTasks
