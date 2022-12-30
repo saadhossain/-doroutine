@@ -10,6 +10,7 @@ import MyTasks from "../Pages/MyTasks/MyTasks";
 import CompletedTasks from "../Pages/CompletedTasks/CompletedTasks";
 import AllTasks from "../Pages/Dashboard/AllTasks";
 import TaskCompleted from "../Pages/Dashboard/TaskCompleted";
+import UpdateTask from "../Pages/UpdateTask/UpdateTask";
 
 export const routers = createBrowserRouter([
     {
@@ -39,6 +40,11 @@ export const routers = createBrowserRouter([
             {
                 path: '/completedtasks',
                 element: <PrivateRouter><CompletedTasks></CompletedTasks></PrivateRouter>
+            },
+            {
+                path: '/updatetask/:id',
+                loader: ({params}) => fetch(`https://doroutine.vercel.app/singletask/${params.id}`),
+                element: <PrivateRouter><UpdateTask></UpdateTask></PrivateRouter>
             }
         ]
     },

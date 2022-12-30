@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
+import { AiFillEdit } from 'react-icons/ai';
 import { BsCheckSquare } from 'react-icons/bs';
 import { MdDeleteForever } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const TaskShowcase = ({ task, refetch }) => {
-    const {darkMode} = useContext(AuthContext)
+    const { darkMode } = useContext(AuthContext)
     const { _id, taskTitle, taskDetails, taskImg, taskDate, status } = task;
 
     //Mark any Task as complete
@@ -41,7 +43,16 @@ const TaskShowcase = ({ task, refetch }) => {
     return (
         <div className={`${darkMode ? 'bg-gray-100' : 'bg-gray-800'} rounded-md shadow-lg p-5 font-poppins`}>
             <div className='border-b border-accent pb-3'>
-                <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
+                <div className='flex justify-between'>
+                    <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
+                    <Link to={`/updatetask/${_id}`}>
+                        <button
+                            onClick={() => handleCompleteTask(_id)}
+                            className='bg-primary text-white py-2 px-3 rounded'>
+                            <AiFillEdit></AiFillEdit>
+                        </button>
+                    </Link>
+                </div>
                 <img src={taskImg} alt={taskTitle} className='w-full h-32 rounded my-5' />
                 <p>{taskDetails}</p>
             </div>
