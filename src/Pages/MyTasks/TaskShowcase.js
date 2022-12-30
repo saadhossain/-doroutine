@@ -43,7 +43,7 @@ const TaskShowcase = ({ task, refetch }) => {
     return (
         <div className={`${darkMode ? 'bg-gray-100' : 'bg-gray-800'} rounded-md shadow-lg p-5 font-poppins`}>
             <div className='border-b border-accent pb-3'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between gap-1'>
                     <h3 className='font-bigshoulder text-xl font-semibold text-primary'>{taskTitle}</h3>
                     <Link to={`/updatetask/${_id}`}>
                         <button

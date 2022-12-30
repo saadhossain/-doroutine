@@ -6,7 +6,7 @@ import addTaskBanner from '../../assests/hero-banner-1.jpg';
 const UpdateTask = () => {
     const singleTask = useLoaderData()[0]
     const { _id, taskTitle, taskDetails, taskDate, status } = singleTask
-    //Functionality to Add a New Task
+    //Functionality to Update a Task
     const handleUpdateTask = (e) => {
         e.preventDefault()
         const form = e.target;
